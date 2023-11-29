@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Department;
 import model.Designation;
+
 import model.Employee;
 import view.tm.EmpployeeTm;
 
@@ -70,8 +71,6 @@ public class EmployeeFormController {
 
         loadAllDepartment();
         loadAllDesignation();
-
-
     }
 
     private void setEmployeeData(EmpployeeTm tm) {
@@ -108,8 +107,6 @@ public class EmployeeFormController {
                         employee.getEmpId(),
                         employee.getFirstName(), employee.getLastName(),
                         employee.getAddress(), employee.getContactNo(), employee.getDob(), employee.getDepartment(), employee.getDesignation(), btn);
-
-
                 obList.add(tm);
 
                 btn.setOnAction(event -> {
@@ -126,15 +123,11 @@ public class EmployeeFormController {
                     } else {
                         new Alert(Alert.AlertType.WARNING, "Try Again!").show();
                     }
-
-
                 });
             }
         }
         tblEmployeeDetail.setItems(obList);
     }
-
-
     public void employeeSaveOnAction(ActionEvent actionEvent) {
         Employee emp = new Employee(txtEmployeeId.getText(), txtfirstName.getText(),
                 txtLastName.getText(), txtAddress.getText(), txtContactNo.getText(),
@@ -163,21 +156,14 @@ public class EmployeeFormController {
                     HrAppFile.employeeTable.get(i).setDepartment(cmbDepartment.getValue());
                     HrAppFile.employeeTable.get(i).setDesignation(cmbDesignation.getValue());
 
-
                     searchEmployee(searchText);
                     new Alert(Alert.AlertType.INFORMATION, "Employee Updated!").show();
                     clearField();
 
                 }
-
             }
-
-
         }
-
-
     }
-
     public void addNewEmployeeOnAction(ActionEvent actionEvent) {
 
         btnSave.setText("Save");
@@ -195,7 +181,6 @@ public class EmployeeFormController {
         txtAddress.clear();
         txtDob.clear();
         txtContactNo.clear();
-
 
     }
 }

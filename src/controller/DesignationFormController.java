@@ -16,6 +16,7 @@ import view.tm.DesignationTm;
 import java.io.IOException;
 import java.util.Optional;
 
+
 public class DesignationFormController {
     public AnchorPane root;
     public TextField txtDesignationId;
@@ -100,11 +101,13 @@ public class DesignationFormController {
     }
 
     public void addNewDesignationAddOnAction(ActionEvent actionEvent) {
+
         btnSave.setText("Save");
     }
 
     public void designationSaveOnAction(ActionEvent actionEvent) {
-        Designation designation = new Designation(txtDesignationId.getText(), txtDesignationName.getText(), txtDescription.getText());
+        Designation designation = new Designation(txtDesignationId.getText(),
+                txtDesignationName.getText(), txtDescription.getText());
         if (btnSave.getText().equalsIgnoreCase("Save")) {
             boolean isSaved = HrAppFile.designationsTable.add(designation);
             if (isSaved) {
@@ -128,7 +131,6 @@ public class DesignationFormController {
             }
         }
     }
-
 
     public void backToMainPageOnAction(ActionEvent actionEvent)throws IOException {
         Stage stage = (Stage) root.getScene().getWindow();

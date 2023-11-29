@@ -12,11 +12,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Department;
 import view.tm.DepartmentTm;
-
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class DepartmentController {
@@ -34,8 +33,13 @@ public class DepartmentController {
     public TableColumn colOption;
     public TextField txtSearch;
 
-    private String searchText = "";
+    String filePath="D:\\Gayan\\ICBT\\HND-CSE\\Semester 2\\OOP\\hr-app\\src\\Department.ser";
 
+
+
+    private String searchText = "";
+    private Object Department;
+    private Object ArrayList;
 
     public void initialize() {
         colDepId.setCellValueFactory(new PropertyValueFactory<>("DepId"));
@@ -47,23 +51,19 @@ public class DepartmentController {
         tblDepData.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (null != newValue) {
                 setData(newValue);
-            }
-
-        });
+            }});
         txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
             searchText = newValue;
             searchDepartment(searchText);
         });
 
     }
-
     private void setData(DepartmentTm tm) {
 
         departmentId.setText(tm.getDepId());
         departmentName.setText(tm.getDepName());
         description.setText(tm.getDescription());
-        btnSave.setText("Update ");
-
+        btnSave.setText("Update");
 
     }
 
@@ -93,24 +93,22 @@ public class DepartmentController {
                         }
                     } else {
                         new Alert(Alert.AlertType.WARNING, "Try Again!").show();
-                    }
-
-
-                });
+                    }});
             }
         }
         tblDepData.setItems(obList);
     }
 
-
     public void departmentSaveOnAction(ActionEvent actionEvent) throws IOException {
 
         Department department = new Department(departmentId.getText(), departmentName.getText(), description.getText());
-        ObjectOutputStream objectOutputStream=new ObjectOutputStream(new FileOutputStream("department.txt"));
 
-        if (btnSave.getText().equalsIgnoreCase("Save ")) {
+
+        if (btnSave.getText().equalsIgnoreCase("Save")) {
+            //ArrayList<Department>departmentTable=new ArrayList<Department>();
+            //boolean isSaved=WriteFile.writeFile(filePath,departmentTable);
             boolean isSaved = HrAppFile.departmentTable.add(department);
-            objectOutputStream.writeObject(department);
+
             if (isSaved) {
                 searchDepartment(searchText);
                 new Alert(Alert.AlertType.INFORMATION, "Department Saved!").show();
@@ -130,19 +128,11 @@ public class DepartmentController {
                     clearField();
 
                 }
-
             }
-
-
         }
-
-
     }
-
     public void departmentAddOnAction(ActionEvent actionEvent) {
         btnSave.setText("Save");
-
-
     }
 
     public void bacToMainPageOnAction(ActionEvent actionEvent) throws IOException {

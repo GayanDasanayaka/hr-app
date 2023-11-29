@@ -1,9 +1,10 @@
 package model;
 
 public class Designation {
-    String desigId;
-    String desigName;
-    String description;
+    private String desigId;
+    private String desigName;
+    private String description;
+
 
     public Designation() {
     }

@@ -21,5 +21,8 @@ public class HrAppFile {
 
   static {
     hrAssistantLoginCredentialsTable.add(new HrAssistantLogin("madu.hra@thetech.lk","madu@123"));
+
+
+
   }
 }

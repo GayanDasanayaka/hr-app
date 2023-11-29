@@ -1,45 +1,20 @@
 package model;
 
-public class UserDt {
-    String empId;
-    String name;
-    String contactNo;
-    String userName;
-    String initPassword;
+public class UserDt extends Employee  {
 
-    public UserDt() {
-    }
+    private String userName;
+    private String initPassword;
 
-    public UserDt(String empId, String name, String contactNo, String userName, String initPassword) {
-        this.empId = empId;
-        this.name = name;
-        this.contactNo = contactNo;
+
+
+    public UserDt(String userName, String initPassword) {
         this.userName = userName;
         this.initPassword = initPassword;
     }
 
-    public String getEmpId() {
-        return empId;
-    }
 
-    public void setEmpId(String empId) {
-        this.empId = empId;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getContactNo() {
-        return contactNo;
-    }
-
-    public void setContactNo(String contactNo) {
-        this.contactNo = contactNo;
+    public UserDt(String empId, String firstName, String contactNo, String userName, String initPassword) {
     }
 
     public String getUserName() {
@@ -60,11 +35,8 @@ public class UserDt {
 
     @Override
     public String toString() {
-        return "User{" +
-                "empId='" + empId + '\'' +
-                ", name='" + name + '\'' +
-                ", contactNo='" + contactNo + '\'' +
-                ", userName='" + userName + '\'' +
+        return "UserDt{" +
+                "userName='" + userName + '\'' +
                 ", initPassword='" + initPassword + '\'' +
                 '}';
     }

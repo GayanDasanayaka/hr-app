@@ -3,14 +3,14 @@ package model;
 import java.util.Date;
 
 public class Employee {
-    String empId;
-    String firstName;
-    String lastName;
-    String contactNo;
-    String address;
-    String dob;
-    String department;
-    String designation;
+    private String empId;
+    private String firstName;
+    private String lastName;
+    private String contactNo;
+    private String address;
+    private String dob;
+    private String department;
+    private String designation;
 
     public Employee() {
     }

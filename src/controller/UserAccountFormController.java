@@ -7,9 +7,9 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import model.Employee;
+
 import model.UserDt;
-import view.tm.EmpployeeTm;
+
 import view.tm.UserDtTm;
 
 import java.io.IOException;
@@ -59,18 +59,14 @@ public class UserAccountFormController {
 
     }
 
-
-
-
     private void searchUsers(String text) {
         ObservableList<UserDtTm> obList = FXCollections.observableArrayList();
         for (UserDt userDt : HrAppFile.userDtTable) {
-            if (userDt.getEmpId().contains(text) || userDt.getName().contains(text)) {
+            if (userDt.getEmpId().contains(text) || userDt.getUserName().contains(text)) {
                 Button btn = new Button("Suspend");
                 UserDtTm tm = new UserDtTm(
                         userDt.getEmpId(),
-                        userDt.getName(), userDt.getContactNo(), userDt.getUserName(), btn);
-
+                        userDt.getFirstName(), userDt.getContactNo(), userDt.getUserName(), btn);
 
                 obList.add(tm);
 
@@ -88,7 +84,6 @@ public class UserAccountFormController {
                     } else {
                         new Alert(Alert.AlertType.WARNING, "Try Again!").show();
                     }
-
 
                 });
             }

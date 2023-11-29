@@ -28,7 +28,7 @@ public class HrAssistantLoginController {
 
     public void hrAssistantLoginOnAction(ActionEvent actionEvent)throws IOException {
         ObservableList<HrAssistantLoginTM> observableList= FXCollections.observableArrayList();
-        for(HrAssistantLogin hrAssistantLogin: HrAppFile.hrAssistantLoginCredentialsTable){
+       for(HrAssistantLogin hrAssistantLogin: HrAppFile.hrAssistantLoginCredentialsTable){
             if(hrAssistantLogin.getUserName().equals(txtUserName.getText())&& hrAssistantLogin.getPassword().equals(txtPassword.getText())){
                 new Alert(Alert.AlertType.INFORMATION, "Successfully Login!").show();
                 Stage stage = (Stage) root.getScene().getWindow();

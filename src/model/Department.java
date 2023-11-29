@@ -8,7 +8,6 @@ public class Department implements Serializable {
     private String depName;
     private String description;
 
-
     public Department(String depId, String depName, String description) {
         this.depId = depId;
         this.depName = depName;

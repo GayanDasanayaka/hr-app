@@ -14,7 +14,6 @@ import java.io.IOException;
 
 public class HrManagerController {
     public AnchorPane root;
-
     public Button btnDepartment;
     public Button btnEmployee;
     public Button btnUserAccount;
@@ -33,7 +32,6 @@ public class HrManagerController {
     public AnchorPane departmentRoot;
     public VBox borderPane;
 
-
     public void bacToMainPageOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage=(Stage)root.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/MainForm.fxml"))));
@@ -41,17 +39,11 @@ public class HrManagerController {
     }
 
     public void departmentOnAction(ActionEvent actionEvent) throws IOException{
-        //Stage stage=(Stage)root.getScene().getWindow();
-        //stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/DepartmentForm.fxml"))));
         Navigation.navigate(Routes.DEPARTMENT,departmentRoot);
-
 
     }
 
     public void employeeOnAction(ActionEvent actionEvent)throws IOException {
-      //  Stage stage=(Stage)root.getScene().getWindow();
-        //stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/EmployeeForm.fxml"))));
-
         Navigation.navigate(Routes.EMPLOYEE,departmentRoot);
     }
 
@@ -60,10 +52,10 @@ public class HrManagerController {
     }
 
     public void designationOnAction(ActionEvent actionEvent)throws IOException {
-        //Stage stage=(Stage)root.getScene().getWindow();
-        //stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/DesignationForm.fxml"))));
+
         Navigation.navigate(Routes.DESIGNATION,departmentRoot);
     }
+
 
     public void departmentAddOnAction(ActionEvent actionEvent) {
     }

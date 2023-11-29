@@ -4,5 +4,4 @@ public class HrManagerLogin extends LoginCredentials {
 
 
 
-
 }
